@@ -1,2 +1,87 @@
 ---
 # defaults file for libvirt
+
+libvirt_libvirtd_listen_tls: 1
+libvirt_libvirtd_listen_tcp: 0
+libvirt_libvirtd_tls_port: 0
+libvirt_libvirtd_tcp_port: 0
+libvirt_libvirtd_listen_addr: 0.0.0.0
+libvirt_libvirtd_mdns_adv: 0
+libvirt_libvirtd_mdns_name: "Virtualization Host {{ ansible_hostname }}"
+
+libvirt_lxc_log_with_libvirtd: 0
+libvirt_lxc_security_driver: selinux
+libvirt_lxc_security_default_confined: 0
+libvirt_lxc_security_require_confined: 0
+
+libvirt_qemu_vnc_listen: 127.0.0.1
+libvirt_qemu_vnc_tls: 0
+libvirt_qemu_vnc_tls_x509_cert_dir: /etc/pki/libvirt-vnc
+libvirt_qemu_vnc_tls_x509_verify: 0
+libvirt_qemu_vnc_password_enabled: False
+libvirt_qemu_vnc_password: password
+libvirt_qemu_vnc_sasl: 0
+libvirt_qemu_vnc_sasl_dir: /etc/sasl2
+libvirt_qemu_vnc_allow_host_audio: 0
+libvirt_qemu_spice_listen: 127.0.0.1
+libvirt_qemu_spice_tls: 0
+libvirt_qemu_spice_tls_x509_cert_dir: /etc/pki/libvirt-spice
+libvirt_qemu_spice_password_enabled: False
+libvirt_qemu_spice_password: password
+libvirt_qemu_spice_sasl: 0
+libvirt_qemu_spice_sasl_dir: /etc/sasl2
+libvirt_qemu_nographics_allow_host_audio: 0
+libvirt_qemu_remote_display_port_min: 5900
+libvirt_qemu_remote_display_port_max: 65535
+libvirt_qemu_remote_websocket_port_min: 5700
+libvirt_qemu_remote_websocket_port_max: 65535
+libvirt_qemu_security_driver: selinux
+libvirt_qemu_security_default_confined: 1
+libvirt_qemu_security_require_confined: 0
+libvirt_qemu_user: root
+libvirt_qemu_group: root
+libvirt_qemu_dynamic_ownership: 1
+libvirt_qemu_cgroup_controllers:
+  - cpu
+  - devices
+  - memory
+  - blkio
+  - cpuset
+  - cpuacct
+libvirt_qemu_cgroup_device_acl:
+  - /dev/null
+  - /dev/full
+  - /dev/zero
+  - /dev/random
+  - /dev/urandom
+  - /dev/ptmx
+  - /dev/kvm
+  - /dev/kqemu
+  - /dev/rtc
+  - /dev/hpet
+  - /dev/vfio/vfio
+libvirt_qemu_save_image_format: raw
+libvirt_qemu_dump_image_format: raw
+libvirt_qemu_snapshot_image_format: raw
+libvirt_qemu_auto_dump_path: /var/lib/libvirt/qemu/dump
+libvirt_qemu_auto_dump_bypass_cache: 0
+libvirt_qemu_auto_start_bypass_cache: 0
+libvirt_qemu_hugetlbfs_mount_enabled: False
+libvirt_qemu_hugetlbfs_mount: /dev/hugepages
+libvirt_qemu_bridge_helper_enabled: False
+libvirt_qemu_bridge_helper: /usr/libexec/qemu-bridge-helper
+libvirt_qemu_clear_emulator_capabilities: 1
+libvirt_qemu_set_process_name: 0
+libvirt_qemu_max_processes: -1
+libvirt_qemu_max_files: -1
+libvirt_qemu_mac_filter: 0
+libvirt_qemu_relaxed_acs_check: 0
+libvirt_qemu_allow_disk_format_probing: 0
+libvirt_qemu_lock_manager_sanlock_enabled: False
+libvirt_qemu_max_queued: 0
+libvirt_qemu_keepalive_interval: -1
+libvirt_qemu_keepalive_count: 0
+libvirt_qemu_seccomp_sandbox: -1
+libvirt_qemu_migration_address: 0.0.0.0
+libvirt_qemu_migration_port_min: 49152
+libvirt_qemu_migration_port_max: 49215

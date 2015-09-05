@@ -1,2 +1,88 @@
 ---
 # tasks file for libvirt
+
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+  tags: libvirt
+
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+  tags: libvirt
+
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: libvirt
+
+- name: Create libvirt.conf configuration file
+  template: >
+    src=libvirt.conf.j2
+    dest=/etc/libvirt/libvirt.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create libvirtd.conf configuration file
+  template: >
+    src=libvirtd.conf.j2
+    dest=/etc/libvirt/libvirtd.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create lxc.conf configuration file
+  template: >
+    src=lxc.conf.j2
+    dest=/etc/libvirt/lxc.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create qemu.conf configuration file
+  template: >
+    src=qemu.conf.j2
+    dest=/etc/libvirt/qemu.conf
+    owner=root
+    group=root
+    mode=0600
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create qemu-lockd.conf configuration file
+  template: >
+    src=qemu-lockd.conf.j2
+    dest=/etc/libvirt/qemu-lockd.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create virtlockd.conf configuration file
+  template: >
+    src=virtlockd.conf.j2
+    dest=/etc/libvirt/virtlockd.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Create virt-login-shell.conf configuration file
+  template: >
+    src=virt-login-shell.conf.j2
+    dest=/etc/libvirt/virt-login-shell.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload libvirt
+  tags: libvirt
+
+- name: Ensure libvirt service is started and enabled on boot
+  service: name={{ libvirt_service_name }} state=started enabled=yes
+  tags: libvirt

@@ -1,0 +1,7 @@
+---
+# tasks file for libvirt (Ubuntu specific)
+
+- name: Install libvirt packages
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: libvirt_packages
+  tags: libvirt

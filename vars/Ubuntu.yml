@@ -1,0 +1,5 @@
+---
+# vars file for libvirt (Ubuntu specific)
+
+libvirt_packages:
+  - libvirt-bin
