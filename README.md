@@ -1,7 +1,7 @@
 libvirt
 =======
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-kbrebanov.libvirt-660198.svg)](https://galaxy.ansible.com/list#/roles/5010)
+[![Ansible Role](https://img.shields.io/ansible/role/5010.svg)](https://galaxy.ansible.com/list#/roles/5010)
 
 Installs and configures libvirt
 
