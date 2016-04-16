@@ -1,7 +1,7 @@
 libvirt
 =======
 
-[![Ansible Role](https://img.shields.io/ansible/role/5010.svg)](https://galaxy.ansible.com/list#/roles/5010)
+[![Build Status](https://travis-ci.org/kbrebanov/ansible-libvirt.svg?branch=master)](https://travis-ci.org/kbrebanov/ansible-libvirt)
 
 Installs and configures libvirt
 
